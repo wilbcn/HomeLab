@@ -92,6 +92,7 @@ Install-Module PSWindowsUpdate -Force -SkipPublisherCheck
 Import-Module PSWindowsUpdate
 
 Install-WindowsUpdate -AcceptAll -AutoReboot
+```
 
 ![image](https://github.com/user-attachments/assets/e19fcc80-d912-429d-b934-513eb515c714)
 
