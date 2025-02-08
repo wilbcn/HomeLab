@@ -87,6 +87,9 @@ AD DS is the core service that will enable us to create a domain, which our clie
 
 1. From the server manager dashboard on the DC, click Add roles and features. This was my first time using the server manager, so after reading the recommended tasks before proceeding, I went back and checked that our version of windows was up to date.
 
+![image](https://github.com/user-attachments/assets/e19fcc80-d912-429d-b934-513eb515c714)
+
+**Commands ran in powershell as Administrator**
 ```powershell
 Install-Module PSWindowsUpdate -Force -SkipPublisherCheck  
 Import-Module PSWindowsUpdate
@@ -94,9 +97,23 @@ Import-Module PSWindowsUpdate
 Install-WindowsUpdate -AcceptAll -AutoReboot
 ```
 
-![image](https://github.com/user-attachments/assets/e19fcc80-d912-429d-b934-513eb515c714)
+2. After installing the updates and rebooting the VM, it was time to configure AD DS. We set the destination server to DomainController, which refers to the VM running Windows Server 2019. You can see in the IP address field a 10.0.2.15 address and the beginning of our private network address 172. This confirms the machine is correctly configured with dual-networking.
 
+![image](https://github.com/user-attachments/assets/04f1edd1-f426-484d-9a94-f74d0222ea3d)
 
+3. From the server roles screen, tick the box next to Active Directory Domain Services, then install.
+4. After AD DS has finished installing, we need to deploy it. In the server manager notifications, we can promote our server to the domain controller.
+
+![image](https://github.com/user-attachments/assets/8e172c58-eb64-4285-9bab-b061f01578db)
+
+5. In the deployment configuration, we add a new forest. For this fundemental project, we call it mydomain.com. Then finish the configuration and hit install. The PC will restart, and the login aftwards now reflects our changes.
+
+![image](https://github.com/user-attachments/assets/700a9365-5c4b-4c72-9c30-74c8bc3f4ff9)
+
+![image](https://github.com/user-attachments/assets/ee5042e1-6b82-44ae-b81b-41e33a937670)
+
+### 4. Create a dedicated domain admin, instead of the built in Admin account
+1. 
 
 
 ### 10. Future projects and expansions
