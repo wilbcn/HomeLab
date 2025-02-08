@@ -112,9 +112,15 @@ Install-WindowsUpdate -AcceptAll -AutoReboot
 
 ![image](https://github.com/user-attachments/assets/ee5042e1-6b82-44ae-b81b-41e33a937670)
 
-### 4. Create a dedicated domain admin, instead of the built in Admin account
-1. 
+### 4. Create a dedicated domain admin.
+After deploying AD DS, we need to create a seperate domain Admin account, instead of relying on the default Administrator account. 
+- This is a best security practice, as the default account is a high value target for attackers.
+- Creating a separate domain admin account allows us to disable or limit the default admin account to reduce attack exposure.
+- By creating a custom domain admin, we can enforce role-based access and apply group policies to limit excessive permissions.
+- Organisations usually require named admin accounts for accountability and to meet security compliance standards.
+- Furthermore, by using individual named domain admin accounts, we can log and audit actions more effectively in Event Viewer & Security Logs.
 
+1. From the start menu, head to administrative tools, and open Active Directory Users and Computers.
 
 ### 10. Future projects and expansions
 1. Dive into security groups, enforce policies, and restrict access through AD DS. Get familiar with using the system, and test its security features with our test clients. (re word this later)
