@@ -24,7 +24,7 @@ Beyond simply replicating the steps, this documentation highlights my understand
 - RAS/NAT is configured to allow internal clients to access the internet while remaining in the private AD environment.
 - The DHCP Server on the DC assigns IP addresses to internal clients within the specified range.
 
-Below is the network architecture we will configure. During the network config, I explain why these parameters were chosen. 
+Below is the network architecture we will configure. During the network config, I elaborate on these parameters.
 
 ![image](https://github.com/user-attachments/assets/6ca339b3-81a4-4fae-a18e-bb9ae381c48d)
 
@@ -85,7 +85,16 @@ For the preferred DNS, we set 127.0.0.1 (localhost), which tells the server to u
 ### 3. Configuring Active Directory Domain Services (AD DS)
 AD DS is the core service that will enable us to create a domain, which our clients can then join, creating a centralised network for managing our users, groups, and PC systems. With AD DS, clients can then log into any domain-joined device using their credentials. AD DS also installs DNS (Domain name system), allowing our clients to find the Domain Controller in order to authenticate. We can also create security groups, enforce policies, restrict access, and manage general configurations.
 
-1. 
+1. From the server manager dashboard on the DC, click Add roles and features. This was my first time using the server manager, so after reading the recommended tasks before proceeding, I went back and checked that our version of windows was up to date.
+
+```powershell
+Install-Module PSWindowsUpdate -Force -SkipPublisherCheck  
+Import-Module PSWindowsUpdate
+
+Install-WindowsUpdate -AcceptAll -AutoReboot
+
+![image](https://github.com/user-attachments/assets/e19fcc80-d912-429d-b934-513eb515c714)
+
 
 
 
