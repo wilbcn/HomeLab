@@ -163,6 +163,24 @@ Dynamic Host Configuration Protocol (DHCP) ensures that internal network clients
 ![image](https://github.com/user-attachments/assets/ccee2e67-23ba-4fe8-a97a-8e2bc79b1367)
 
 ### 7. Adding active directory general users
+1. For our regular users, clients in the private network, we need to create a new Organisational Unit called GeneralUsers.
+2. Below I have created our first user, which is for testing our network architecture. 
+
+![image](https://github.com/user-attachments/assets/4480aca4-75b7-474f-b123-3846f3c92de6)
+
+3. When we created Tom Smith as a new user, Active Directory automatically placed him into the Domain Users security group by default.
+
+![image](https://github.com/user-attachments/assets/0900f4a9-a853-46e9-8102-b13297798473)
+
+### 8. Setting up the win10 virtual machine in VB
+With the Domain Controller (DC) and network configuration in place, the next step was to create a Windows 10 virtual machine (VM). This VM will act as a client machine, allowing us to:
+
+- Log in as domain users and test authentication.
+- Join the Active Directory (AD) domain to integrate with the network.
+
+1. In the Oracle Virtual Box Manager, begin the new virtual machine process. Ensure that the only network adapter has been set to internal. 
+2. Download the media creation tool from microsoft and run it to configure the windows 10 iso file.
+3. Finish setting up the VM,
 
 
 
