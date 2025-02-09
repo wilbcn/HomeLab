@@ -180,7 +180,30 @@ With the Domain Controller (DC) and network configuration in place, the next ste
 
 1. In the Oracle Virtual Box Manager, begin the new virtual machine process. Ensure that the only network adapter has been set to internal. 
 2. Download the media creation tool from microsoft and run it to configure the windows 10 iso file.
-3. Finish setting up the VM,
+3. Finish setting up the VM, naming it CLIENT1, and selecting Windows 10 64-Bit as the OS.
+
+![image](https://github.com/user-attachments/assets/7626ae9d-d65b-477e-b55a-06c1fa0b88c0)
+
+4. Boot up the VM and run through the windows setup process, choosing **Set up for an organisation** when the option appears. When prompted to sign in, choose **Domain join instead**.
+
+![image](https://github.com/user-attachments/assets/b8d00990-2952-40e7-8d81-bce0a1719539)
+
+5. Sign in as **local user**, with no password. We will be signing out shortly to access our GeneralUser client we made before. 
+6. Running **ipconfing** in cmd, we can see that:
+CLIENT1 has successfully been assigned an IP inside the internal network (172.16.0.100).
+
+- IP Address: 172.16.0.100 → This is assigned correctly from your internal network.  
+- Subnet Mask: 255.255.255.0 → Matches the /24 subnet you set earlier.  
+- Default Gateway: 172.16.0.1 → This is your Domain Controller
+- DNS Suffix: mydomain.com → This confirms that your machine is receiving domain-related DNS settings.
+
+7. To confirm that our network configuration, NAT, and DNS settings were working correctly, I performed a ping test to google.com, which successfully resolved and responded.
+
+- DNS is functioning properly, resolving external domain names.
+- The client has connectivity to the Domain Controller (DC) as its default gateway (172.16.0.1).
+- The DC is correctly handling NAT, forwarding traffic to the internet and receiving responses back.
+
+![image](https://github.com/user-attachments/assets/d1760576-d882-42f9-85c1-c87b10745dd1)
 
 
 
