@@ -146,7 +146,23 @@ Clients in our private network **172.16.0.X** require internet access. By confir
 ![image](https://github.com/user-attachments/assets/43e7f923-e379-4299-a733-f114adb5cc86)
 
 ### 6. Setting up DHCP server on our domain controller
+Dynamic Host Configuration Protocol (DHCP) ensures that internal network clients automatically receive correct IP configurations, allowing them to communicate within the domain and access the internet through NAT. Instead of manually assigning static IP addresses to every device, DHCP dynamically distributes IPs within our specified range. Since DHCP is hosted on the DC, it ensures that only trusted, domain-joined machines can receive IPs. New devices joining the network automatically receive an IP, avoiding conflicts and manual assignments. Also, IP address leases ensure that unused addresses return to the available pool.
 
+1. From the server manager dashboard, click add new role or features. Select our domain, and this time install DHCP server.
+2. After installation, still in server manager, go to Tools, and DHCP.
+3. Expand on the domain controller, and add a new scope to IPv4. Here we are defining the scope to the private network range we identified as part of the network architecture for this project. IPs can be leased to our clients within our private network within this IP range (start/end).
+
+![image](https://github.com/user-attachments/assets/4ef89105-6c3a-4c8a-b156-d3165cb805e5)
+
+4. Extra settings such as lease duration was left at 8 days, and the default gateway was set to 172.16.0.1. Remember this address is the internal NIC on our Domain Controller. Check the option to activate the scope now, and check the DHCP tool now has our new scope.
+
+![image](https://github.com/user-attachments/assets/884efbb1-6476-40ec-85b5-191bbd76bfc1)
+
+5. Click on the domaincontroller.mydomain.com and hit authorize and refresh. IPv4 and IPv6 should turn green! Notice that Address Leases is empty, as so far we have not configured any clients within our private network to lease addresses to. This is the next step.
+
+![image](https://github.com/user-attachments/assets/ccee2e67-23ba-4fe8-a97a-8e2bc79b1367)
+
+### 7. Adding active directory general users
 
 
 
