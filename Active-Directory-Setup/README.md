@@ -122,6 +122,39 @@ After deploying AD DS, we need to create a seperate domain Admin account, instea
 
 1. From the start menu, head to administrative tools, and open Active Directory Users and Computers.
 
+![image](https://github.com/user-attachments/assets/6c3ceff0-3fe6-4067-a4b8-c8eed59b2126)
+
+2. Create a new Organisational Unit under the domain **mydomain.com**, and call it Admins. Then create the admin user. I used the naming convention a-username, to signify this admin account. That way if more admins are added, we can adhere to this naming convention.
+3. In the properties of this user, change the **Member Of** settings, and add **Domain Admins**, a preloaded security group which finalises our new user as an Admin.
+4. Log out of the PC, and back in using the new Domain Admin details.
+
+### 5. Setting up Routing & Remote Access, Network Address Translation (RAS/NAS)
+Clients in our private network **172.16.0.X** require internet access. By confiring RAS/NAS, internal clients will be able to communicate with external networks using the Domain Controllers internet NIC. Remember that the DC has two NICS, with NIC 2 (internal/static) acting as the default gateway for our internal network. As private addresses are not routable over the internet, NAT is configured to translate these private IPs into public ones. This setup keeps our internal network isolated from direct internet exposure, reducing attack vectors.
+
+1. From the server manager dashboard, add a new role or feature once again, and select our domain server during setup.
+2. Select Remote Access, and also routing, and finish the install.
+3. In server manager, navigate to tools, and open up routing and remote access.
+
+![image](https://github.com/user-attachments/assets/089f58e9-d124-4714-a9d3-254775ea62e7)
+
+4. By right clicking on the domain controller, we can configure and enable how our internal clients are going to connect to the internet. We select our Internet facing NIC (This is where renaming them earlier comes in handy), and finish the setup.
+
+![image](https://github.com/user-attachments/assets/45e8520b-a8ca-444d-b158-954e65d60f51)
+
+5. Right click on the DOMAINCONTROLLER, and hit refresh and or restart if it does not appear green.
+
+![image](https://github.com/user-attachments/assets/43e7f923-e379-4299-a733-f114adb5cc86)
+
+### 6. Setting up DHCP server on our domain controller
+
+
+
+
+
+
+
+
+
 ### 10. Future projects and expansions
 1. Dive into security groups, enforce policies, and restrict access through AD DS. Get familiar with using the system, and test its security features with our test clients. (re word this later)
 
