@@ -129,7 +129,7 @@ After deploying AD DS, we need to create a seperate domain Admin account, instea
 4. Log out of the PC, and back in using the new Domain Admin details.
 
 ### 5. Setting up Routing & Remote Access, Network Address Translation (RAS/NAS)
-Clients in our private network **172.16.0.X** require internet access. By confiring RAS/NAS, internal clients will be able to communicate with external networks using the Domain Controllers internet NIC. Remember that the DC has two NICS, with NIC 2 (internal/static) acting as the default gateway for our internal network. As private addresses are not routable over the internet, NAT is configured to translate these private IPs into public ones. This setup keeps our internal network isolated from direct internet exposure, reducing attack vectors.
+Clients in our private network **172.16.0.X** require internet access. By configuring RAS/NAS, internal clients will be able to communicate with external networks using the Domain Controllers internet NIC. Remember that the DC has two NICS, with NIC 2 (internal/static) acting as the default gateway for our internal network. As private addresses are not routable over the internet, NAT is configured to translate these private IPs into public ones. This setup keeps our internal network isolated from direct internet exposure, reducing attack vectors.
 
 1. From the server manager dashboard, add a new role or feature once again, and select our domain server during setup.
 2. Select Remote Access, and also routing, and finish the install.
