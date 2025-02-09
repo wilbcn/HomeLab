@@ -35,12 +35,12 @@ Below is the network architecture we will configure. During the network config, 
 This section provides a step-by-step breakdown of the Active Directory setup, including configuration details, logical explanations, and supporting screenshots to illustrate each step.
 
 ### 1. Configure, Mount, and boot Windows Server 2019
-1. Click new in VirtualBox to add a new virtual machine. I named this Domain Controller, and set the appropriate memory and dedicated cpu.
+1. Click new in VirtualBox to add a new virtual machine. I named this Domain Controller, and set the appropriate memory and dedicated CPU cores.
 2. Referring to our network architecture, our DC needs two NICS (internet/internal). I set adapter one to NAT, and adapter two to internal network.
 
 ![image](https://github.com/user-attachments/assets/e43637d9-7453-449d-8183-b00e8460b7c7)
 
-3. I then mounted the microsoft server iso, and booted up the VM.
+3. I then mounted the Microsoft Server ISO, and booted up the VM.
 
 ![image](https://github.com/user-attachments/assets/9ccfe474-4411-42f2-a4ed-3e99b9dab2da)
 
@@ -55,7 +55,7 @@ This section provides a step-by-step breakdown of the Active Directory setup, in
 
 ![image](https://github.com/user-attachments/assets/946e760a-5860-4098-a100-c0986bf6d246)
 
-2. By investing the **details** of these two network adapters, I was able to logically work out which was which.
+2. By investigating the **details** of these two network adapters, I was able to logically work out which was which.
 
 ![image](https://github.com/user-attachments/assets/11aaeba7-325f-4f9a-b04c-e9365382723d)
 
@@ -106,14 +106,14 @@ Install-WindowsUpdate -AcceptAll -AutoReboot
 
 ![image](https://github.com/user-attachments/assets/8e172c58-eb64-4285-9bab-b061f01578db)
 
-5. In the deployment configuration, we add a new forest. For this fundemental project, we call it mydomain.com. Then finish the configuration and hit install. The PC will restart, and the login aftwards now reflects our changes.
+5. In the deployment configuration, we add a new forest. For this fundamental project, we call it mydomain.com. Then finish the configuration and hit install. The PC will restart, and the login afterwards now reflects our changes.
 
 ![image](https://github.com/user-attachments/assets/700a9365-5c4b-4c72-9c30-74c8bc3f4ff9)
 
 ![image](https://github.com/user-attachments/assets/ee5042e1-6b82-44ae-b81b-41e33a937670)
 
 ### 4. Create a dedicated domain admin.
-After deploying AD DS, we need to create a seperate domain Admin account, instead of relying on the default Administrator account. 
+After deploying AD DS, we need to create a separate domain Admin account, instead of relying on the default Administrator account. 
 - This is a best security practice, as the default account is a high value target for attackers.
 - Creating a separate domain admin account allows us to disable or limit the default admin account to reduce attack exposure.
 - By creating a custom domain admin, we can enforce role-based access and apply group policies to limit excessive permissions.
@@ -205,7 +205,7 @@ CLIENT1 has successfully been assigned an IP inside the internal network (172.16
 
 ![image](https://github.com/user-attachments/assets/d1760576-d882-42f9-85c1-c87b10745dd1)
 
-8. In our client system settings, lets change the PC name to CLIENT1, and finish doining our domain. To do this, we will need to enter our Domain Admin details. Afterwards, restart the PC.
+8. In our client system settings, we change the PC name to CLIENT1, and finish joining our domain. To do this, we will need to enter our Domain Admin details. Afterwards, restart the PC.
 
 ![image](https://github.com/user-attachments/assets/061ef98d-d961-4c4e-8e92-2bf06b075eac)
 
@@ -223,7 +223,7 @@ After enabling the account, I was able to log into CLIENT1 using Tom Smith's cre
 ![image](https://github.com/user-attachments/assets/9f3a525d-f3f0-4eef-ae2a-b74357b75cac)
 
 ### 10. Future projects and expansions
-This project was my first hands-on experience with Active Directory and my first time setting up virtual machines (VMs) using VirtualBox. This project serverd as a solid introduction to domain controllers, DHCP, DNS, NAT, user management, and security configurations. I also learned how networking and authentication work in an enterprise-like environment, setting the foundation for further exploration. To continue building on this knowledge, I plan to expand my lab with various follow-up projects:
+This project was my first hands-on experience with Active Directory and my first time setting up virtual machines (VMs) using VirtualBox. This project served as a solid introduction to domain controllers, DHCP, DNS, NAT, user management, and security configurations. I also learned how networking and authentication work in an enterprise-like environment, setting the foundation for further exploration. To continue building on this knowledge, I plan to expand my lab with various follow-up projects:
 
 ### Expanding into Secure Environments & Artifact Analysis
 With this hands-on experience in setting up and managing VMs, I plan to expand my home lab by configuring secure environments for digital forensics and artifact analysis. This will allow me to further develop skills in incident response, file integrity validation, and forensic data examination—key areas in Blue Team operations.
