@@ -205,15 +205,49 @@ CLIENT1 has successfully been assigned an IP inside the internal network (172.16
 
 ![image](https://github.com/user-attachments/assets/d1760576-d882-42f9-85c1-c87b10745dd1)
 
+8. In our client system settings, lets change the PC name to CLIENT1, and finish doining our domain. To do this, we will need to enter our Domain Admin details. Afterwards, restart the PC.
 
+![image](https://github.com/user-attachments/assets/061ef98d-d961-4c4e-8e92-2bf06b075eac)
 
+![image](https://github.com/user-attachments/assets/13c9f0a5-7347-4081-9776-2bfb2db0ea70)
 
+9. Back in the Domain controller (Windows Server), we can see that 1 address is now being leased! Additionally, our CLIENT1 appears in the computers folder.
 
+![image](https://github.com/user-attachments/assets/c3092ab9-6699-4bb7-9cfc-5cae0fa22546)
 
+![image](https://github.com/user-attachments/assets/66425779-6dcf-4d25-b12c-7a73c4219d27)
 
+10. With the Windows 10 client successfully joined to the domain and assigned a leased IP address, the next step was to enable the user account before logging in. Before a domain user can sign in, their account must be enabled in Active Directory. Open Active Directory Users and Computers, navigate to the GeneralUsers folder, right-click the user (e.g., Tom Smith) and select Enable Account. The option now displays "Disable Account", confirming the change.
+After enabling the account, I was able to log into CLIENT1 using Tom Smith's credentials, successfully authenticating against the Domain Controller.
+
+![image](https://github.com/user-attachments/assets/9f3a525d-f3f0-4eef-ae2a-b74357b75cac)
 
 ### 10. Future projects and expansions
-1. Dive into security groups, enforce policies, and restrict access through AD DS. Get familiar with using the system, and test its security features with our test clients. (re word this later)
+This project was my first hands-on experience with Active Directory and my first time setting up virtual machines (VMs) using VirtualBox. This project serverd as a solid introduction to domain controllers, DHCP, DNS, NAT, user management, and security configurations. I also learned how networking and authentication work in an enterprise-like environment, setting the foundation for further exploration. To continue building on this knowledge, I plan to expand my lab with various follow-up projects:
+
+### Expanding into Secure Environments & Artifact Analysis
+With this hands-on experience in setting up and managing VMs, I plan to expand my home lab by configuring secure environments for digital forensics and artifact analysis. This will allow me to further develop skills in incident response, file integrity validation, and forensic data examination—key areas in Blue Team operations.
+
+As part of my training in Blue Team Level 1, I intend to:
+
+- Set up a dedicated forensic analysis VM with tools like FTK Imager for disk and memory analysis.
+- Practice hash generation and integrity verification using SHA256, MD5, and other cryptographic hashing techniques.
+- Conduct malware artifact analysis, examining file behaviors and registry changes in an isolated environment.
+- Explore log analysis and SIEM tools to improve detection and investigation techniques.
+- Analyze phishing emails by collecting and examining email artifacts (headers, attachments, embedded links) to identify threats, track indicators of compromise (IOCs), and produce investigative reports.
+
+### Delve into Active Directory Security Groups & Group Policies (GPOs)
+I also aim to gain a better understanding of how organizations leverage security groups and GPOs to enhance their security posture.
+
+- Learn how GPOs enforce security policies and restrict access to system settings, software, and devices.
+- Explore Security Groups, RBAC, and OUs to manage user permissions and enforce department-specific access controls.
+
+### Explore Event Viewer to address potential security concerns.
+To deepen my understanding of Active Directory security and gain familiarity with its monitoring tools, I plan to:
+
+- Track failed login attempts and suspicious activities using Event Viewer.
+- Implement Account Lockout Policies to mitigate brute-force attacks.
+- Identify common AD security weaknesses and apply defensive measures against privilege escalation.
 
 
 
